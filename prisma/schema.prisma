@@ -1,0 +1,178 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String
+  email         String    @unique
+  passwordHash  String
+  role          Role      @default(ADMIN)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+enum Role {
+  ADMIN
+  SUPER_ADMIN
+}
+
+model Service {
+  id               String   @id @default(cuid())
+  title            String
+  slug             String   @unique
+  shortDescription String
+  description      String
+  icon             String?
+  active           Boolean  @default(true)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model ComplianceEvent {
+  id             String                 @id @default(cuid())
+  title          String
+  slug           String                 @unique
+  category       String
+  description    String?
+  recurrenceType RecurrenceType
+  recurrenceRule String?                // e.g., "DAY_20"
+  reminderDays   Int[]                  // e.g., [15, 10, 7, 3, 1]
+  applicableTo   String?
+  active         Boolean                @default(true)
+  occurrences    ComplianceOccurrence[]
+  createdAt      DateTime               @default(now())
+  updatedAt      DateTime               @updatedAt
+}
+
+enum RecurrenceType {
+  ONCE
+  MONTHLY
+  QUARTERLY
+  YEARLY
+}
+
+model ComplianceOccurrence {
+  id                String          @id @default(cuid())
+  complianceEventId String
+  event             ComplianceEvent @relation(fields: [complianceEventId], references: [id])
+  dueDate           DateTime
+  originalDueDate   DateTime
+  overridden        Boolean         @default(false)
+  overrideReason    String?
+  status            EventStatus     @default(UPCOMING)
+  reminders         Reminder[]
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+}
+
+enum EventStatus {
+  UPCOMING
+  DUE_SOON
+  DUE_TODAY
+  OVERDUE
+  COMPLETED
+}
+
+model Job {
+  id             String        @id @default(cuid())
+  title          String
+  slug           String        @unique
+  department     String
+  location       String
+  employmentType String
+  experience     String
+  description    String
+  requirements   String
+  openingDate    DateTime
+  closingDate    DateTime
+  recurring      Boolean       @default(false)
+  recurrenceRule String?
+  status         JobStatus     @default(DRAFT)
+  applications   Application[]
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+}
+
+enum JobStatus {
+  DRAFT
+  SCHEDULED
+  OPEN
+  CLOSING_SOON
+  CLOSED
+  ARCHIVED
+}
+
+model Application {
+  id                String            @id @default(cuid())
+  jobId             String
+  job               Job               @relation(fields: [jobId], references: [id])
+  applicationNumber String            @unique
+  fullName          String
+  email             String
+  phone             String
+  qualification     String
+  experience        String
+  skills            String?
+  linkedinUrl       String?
+  portfolioUrl      String?
+  coverLetter       String?
+  resumeUrl         String
+  status            ApplicationStatus @default(NEW)
+  internalNotes     String?
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+}
+
+enum ApplicationStatus {
+  NEW
+  UNDER_REVIEW
+  SHORTLISTED
+  INTERVIEW
+  SELECTED
+  REJECTED
+}
+
+model Enquiry {
+  id            String        @id @default(cuid())
+  enquiryNumber String        @unique
+  name          String
+  email         String
+  phone         String
+  company       String?
+  service       String?
+  message       String
+  status        EnquiryStatus @default(NEW)
+  internalNotes String?
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+}
+
+enum EnquiryStatus {
+  NEW
+  CONTACTED
+  CONVERTED
+  ARCHIVED
+}
+
+model Reminder {
+  id                     String               @id @default(cuid())
+  email                  String
+  complianceOccurrenceId String
+  occurrence             ComplianceOccurrence @relation(fields: [complianceOccurrenceId], references: [id])
+  reminderDate           DateTime
+  status                 ReminderStatus       @default(PENDING)
+  sentAt                 DateTime?
+  createdAt              DateTime             @default(now())
+}
+
+enum ReminderStatus {
+  PENDING
+  SENT
+  FAILED
+}
