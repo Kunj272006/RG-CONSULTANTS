@@ -44,7 +44,7 @@ export function Footer() {
             <h3 className="font-semibold mb-4">Contact</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><a href="https://maps.app.goo.gl/vLKUXje7yHTtt7CH6" target="_blank" className="hover:text-primary transition-colors">A3, Green Building, Laxmi Enclave, Dehrakhas, Dehradun, Uttarakhand 248001</a></li>
-              <li>rachitgardca1992@gmail.com</li>
+              <li>rachitgargca1992@gmail.com</li>
               <li>8171223939</li>
             </ul>
           </div>
