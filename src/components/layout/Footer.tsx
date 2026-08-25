@@ -43,9 +43,9 @@ export function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Contact</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>123 Business Avenue, Financial District</li>
-              <li>info@rgconsultants.com</li>
-              <li>+91 98765 43210</li>
+              <li><a href="https://maps.app.goo.gl/vLKUXje7yHTtt7CH6" target="_blank" className="hover:text-primary transition-colors">A3, Green Building, Laxmi Enclave, Dehrakhas, Dehradun, Uttarakhand 248001</a></li>
+              <li>rachitgardca1992@gmail.com</li>
+              <li>8171223939</li>
             </ul>
           </div>
         </div>

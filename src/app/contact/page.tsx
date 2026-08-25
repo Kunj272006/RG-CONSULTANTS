@@ -36,7 +36,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="font-semibold">Office Address</h4>
-                    <p className="text-muted-foreground text-sm mt-1">123 Business Avenue, Financial District, New Delhi, 110001</p>
+                    <p className="text-muted-foreground text-sm mt-1"><a href="https://maps.app.goo.gl/vLKUXje7yHTtt7CH6" target="_blank" className="hover:text-primary transition-colors">A3, Green Building, Laxmi Enclave, Dehrakhas, Dehradun, Uttarakhand 248001</a></p>
                   </div>
                 </div>
 
@@ -46,7 +46,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="font-semibold">Phone</h4>
-                    <p className="text-muted-foreground text-sm mt-1">+91 98765 43210</p>
+                    <p className="text-muted-foreground text-sm mt-1">8171223939</p>
                   </div>
                 </div>
 
@@ -56,7 +56,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="font-semibold">Email</h4>
-                    <p className="text-muted-foreground text-sm mt-1">info@rgconsultants.com</p>
+                    <p className="text-muted-foreground text-sm mt-1">rachitgardca1992@gmail.com</p>
                   </div>
                 </div>
 
@@ -66,7 +66,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="font-semibold">Working Hours</h4>
-                    <p className="text-muted-foreground text-sm mt-1">Mon - Fri: 9:00 AM - 6:00 PM</p>
+                    <p className="text-muted-foreground text-sm mt-1">Mon - Fri: 11 am - 7 pm <br/> Saturday: 11 am - 3 pm <br/> Sunday: Closed</p>
                   </div>
                 </div>
               </div>
@@ -88,7 +88,7 @@ export default function ContactPage() {
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="phone" className="text-sm font-medium">Phone Number <span className="text-red-500">*</span></label>
-                    <Input id="phone" name="phone" placeholder="+91 98765 43210" required />
+                    <Input id="phone" name="phone" placeholder="8171223939" required />
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="company" className="text-sm font-medium">Company Name</label>
