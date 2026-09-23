@@ -21,7 +21,16 @@ export default function Home() {
             <Link href="/contact" className={buttonVariants({ size: "lg", className: "w-full sm:w-auto" })}>
               Book a Consultation <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
-            <Link href="/services" className={buttonVariants({ size: "lg", variant: "outline", className: "w-full sm:w-auto" })}>Explore Our Services</Link>
+            <Link 
+              href="/services" 
+              className={buttonVariants({ 
+                size: "lg", 
+                variant: "outline", 
+                className: "w-full sm:w-auto border-primary/30 bg-card text-foreground hover:bg-primary/5 hover:border-primary shadow-xs font-medium" 
+              })}
+            >
+              Explore Our Services
+            </Link>
           </div>
         </div>
       </section>
@@ -36,19 +45,29 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {[
               { title: "Taxation", icon: Calculator, desc: "Income Tax, GST, Tax Planning, and Return Filing ensuring maximum efficiency." },
               { title: "Accounting", icon: FileText, desc: "Accurate bookkeeping, financial statements, and reconciliation." },
               { title: "Corporate Compliance", icon: Building2, desc: "Company Registration, ROC Compliance, and Annual Filings." },
               { title: "Financial Advisory", icon: Briefcase, desc: "Cash flow planning, business structuring, and strategic financial analysis." },
             ].map((service, i) => (
-              <div key={i} className="group p-8 rounded-2xl border bg-card hover:shadow-lg transition-all">
-                <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
-                  <service.icon className="h-6 w-6" />
+              <div key={i} className="group p-8 rounded-2xl border bg-card hover:shadow-lg transition-all flex flex-col justify-between">
+                <div>
+                  <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+                    <service.icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
+                  <p className="text-muted-foreground">{service.desc}</p>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
-                <p className="text-muted-foreground">{service.desc}</p>
+                <div className="mt-6 pt-4 border-t border-border/50">
+                  <Link 
+                    href="/services" 
+                    className="inline-flex items-center text-sm font-semibold text-primary hover:underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-xs"
+                  >
+                    Learn more <ArrowRight className="ml-1.5 h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
@@ -56,7 +75,7 @@ export default function Home() {
       </section>
 
       {/* Compliance Reminder Preview */}
-      <section className="py-20 bg-slate-50 dark:bg-slate-900">
+      <section className="pt-10 pb-20 md:pt-12 md:pb-24 bg-slate-50 dark:bg-slate-900">
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="bg-white dark:bg-slate-950 rounded-3xl p-8 md:p-12 shadow-xl border">
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
@@ -74,25 +93,34 @@ export default function Home() {
                   ))}
                 </ul>
                 <div className="pt-4">
-                  <Link href="/compliance-calendar" className={buttonVariants({ variant: "secondary" })}>View Compliance Calendar</Link>
+                  <Link 
+                    href="/compliance-calendar" 
+                    className={buttonVariants({ 
+                      variant: "default", 
+                      size: "lg", 
+                      className: "gap-2 shadow-sm font-semibold" 
+                    })}
+                  >
+                    View Compliance Calendar <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  </Link>
                 </div>
               </div>
               <div className="flex-1 w-full bg-slate-100 dark:bg-slate-800 rounded-xl p-6 border space-y-4">
-                 <div className="bg-background rounded-lg p-4 border shadow-sm flex justify-between items-center">
+                 <div className="bg-background rounded-xl p-5 md:p-6 border shadow-sm flex justify-between items-center gap-4">
                     <div>
                       <p className="font-semibold text-sm">GSTR-1 Filing</p>
                       <p className="text-xs text-muted-foreground">Monthly Return</p>
                     </div>
-                    <span className="px-2 py-1 bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400 text-xs rounded-full font-medium">
+                    <span className="px-2.5 py-1 bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400 text-xs rounded-full font-medium shrink-0">
                       Due in 3 days
                     </span>
                  </div>
-                 <div className="bg-background rounded-lg p-4 border shadow-sm flex justify-between items-center">
+                 <div className="bg-background rounded-xl p-5 md:p-6 border shadow-sm flex justify-between items-center gap-4">
                     <div>
                       <p className="font-semibold text-sm">TDS Deposit</p>
                       <p className="text-xs text-muted-foreground">Monthly Compliance</p>
                     </div>
-                    <span className="px-2 py-1 bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 text-xs rounded-full font-medium">
+                    <span className="px-2.5 py-1 bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 text-xs rounded-full font-medium shrink-0">
                       Due in 7 days
                     </span>
                  </div>

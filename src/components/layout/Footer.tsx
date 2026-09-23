@@ -21,31 +21,55 @@ export function Footer() {
           </div>
           
           <div>
-            <h3 className="font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
-              <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
-              <li><Link href="/services" className="hover:text-primary transition-colors">Services</Link></li>
-              <li><Link href="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
+            <h3 className="font-semibold mb-4 text-foreground">Quick Links</h3>
+            <ul className="space-y-2.5 text-sm">
+              <li><Link href="/" className="text-foreground/80 hover:text-primary hover:underline underline-offset-4 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-xs">Home</Link></li>
+              <li><Link href="/about" className="text-foreground/80 hover:text-primary hover:underline underline-offset-4 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-xs">About Us</Link></li>
+              <li><Link href="/services" className="text-foreground/80 hover:text-primary hover:underline underline-offset-4 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-xs">Services</Link></li>
+              <li><Link href="/contact" className="text-foreground/80 hover:text-primary hover:underline underline-offset-4 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-xs">Contact</Link></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4">Important</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link href="/compliance-calendar" className="hover:text-primary transition-colors">Compliance Calendar</Link></li>
-              <li><Link href="/careers" className="hover:text-primary transition-colors">Careers</Link></li>
-              <li><Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="hover:text-primary transition-colors">Terms & Conditions</Link></li>
+            <h3 className="font-semibold mb-4 text-foreground">Important</h3>
+            <ul className="space-y-2.5 text-sm">
+              <li><Link href="/compliance-calendar" className="text-foreground/80 hover:text-primary hover:underline underline-offset-4 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-xs">Compliance Calendar</Link></li>
+              <li><Link href="/careers" className="text-foreground/80 hover:text-primary hover:underline underline-offset-4 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-xs">Careers</Link></li>
+              <li><Link href="/privacy" className="text-foreground/80 hover:text-primary hover:underline underline-offset-4 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-xs">Privacy Policy</Link></li>
+              <li><Link href="/terms" className="text-foreground/80 hover:text-primary hover:underline underline-offset-4 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-xs">Terms & Conditions</Link></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4">Contact</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="https://maps.app.goo.gl/vLKUXje7yHTtt7CH6" target="_blank" className="hover:text-primary transition-colors">A3, Green Building, Laxmi Enclave, Dehrakhas, Dehradun, Uttarakhand 248001</a></li>
-              <li>rachitgargca1992@gmail.com</li>
-              <li>8171223939</li>
+            <h3 className="font-semibold mb-4 text-foreground">Contact</h3>
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <a 
+                  href="https://maps.app.goo.gl/vLKUXje7yHTtt7CH6" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-foreground/80 hover:text-primary hover:underline underline-offset-4 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-xs inline-block"
+                >
+                  A3, Green Building, Laxmi Enclave, Dehrakhas, Dehradun, Uttarakhand 248001
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="mailto:rachitgargca1992@gmail.com" 
+                  className="text-foreground/80 hover:text-primary hover:underline underline-offset-4 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-xs inline-block"
+                >
+                  rachitgargca1992@gmail.com
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="tel:+918171223939" 
+                  className="text-foreground/80 hover:text-primary hover:underline underline-offset-4 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-xs inline-block"
+                  aria-label="Call +91 81712 23939"
+                >
+                  +91 81712 23939
+                </a>
+              </li>
             </ul>
           </div>
         </div>
